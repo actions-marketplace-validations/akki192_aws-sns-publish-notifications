@@ -10,7 +10,7 @@ Send a message to SNS Topic via GitHub Actions
 
 ```yml
 - name: Publish SNS Notification
-  uses: akki192/aws-sns-publish-notifications@0.0.1
+  uses: akki192/aws-sns-publish-notifications@0.0.2
   with:
     SUBJECT: "Hello"
     MESSAGE: "message"

@@ -33,6 +33,8 @@ function execute() {
     if (ADD_GITHUB_DETAILS) {
       message = { ...message, ...gitParams };
     }
+
+    core.debug(message);
     
     const params = {
       Message: JSON.stringify(message),
@@ -46,16 +48,15 @@ function execute() {
 
     awsClient.publish(params, function(err, data) {
       if (err) {
-        core.debug(err.Message);
+        core.error(err.Message);
         core.setFailed(err.Message); 
-      }
-      else {
+      } else {
         core.debug("Published Message!");
         return data.MessageId;
       }
     });
   } catch(error) {
-    core.debug(err.Message);
+    core.error(error.Message);
     core.setFailed(error.message);
   }
 }
