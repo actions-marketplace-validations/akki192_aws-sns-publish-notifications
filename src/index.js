@@ -20,7 +20,7 @@ function execute() {
 
     core.debug(MESSAGE);
 
-    const message = {
+    let message = {
       message: MESSAGE
     };
 
