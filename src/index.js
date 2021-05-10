@@ -20,24 +20,28 @@ function execute() {
 
     core.debug(MESSAGE);
 
-    let message = {
-      message: MESSAGE
-    };
+    let message;
 
-    const gitParams = {
-      repository: process.env.GITHUB_REPOSITORY,
-      branch: process.env.GITHUB_REF,
-      workflowUrl: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
-    };
-    
     if (ADD_GITHUB_DETAILS) {
-      message = { ...message, ...gitParams };
+      message = `
+      Repository: ${process.env.GITHUB_REPOSITORY}
+      Branch: ${process.env.GITHUB_REF}
+      URL: https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}
+      
+      Message:
+      ${MESSAGE}
+      `;
+    } else {
+      message = `
+      Message:
+      ${MESSAGE}
+      `;
     }
 
     core.debug(message);
     
     const params = {
-      Message: JSON.stringify(message),
+      Message: message,
       TopicArn: TOPIC_ARN
     };
     if (SUBJECT) {
