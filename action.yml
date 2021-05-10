@@ -1,4 +1,4 @@
-name: "AWS SNS - Publish Email"
+name: "AWS SNS - Publish notifications"
 author: "Akshay Shetgaonkar"
 description: "Send a message to SNS Topic via GitHub Actions"
 inputs:
