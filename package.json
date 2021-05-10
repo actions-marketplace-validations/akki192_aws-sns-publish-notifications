@@ -1,11 +1,11 @@
 {
-  "name": "sns-publish-topic",
+  "name": "sns-publish-email",
   "version": "1.0.0",
-  "description": "Send a SNS Topic via GitHub Actions",
+  "description": "Send a message to SNS Topic via GitHub Actions",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nothingalike/sns-publish-topic.git"
+    "url": "git+https://github.com/akki192/sns-publish-email.git"
   },
   "keywords": [
     "github",
@@ -14,12 +14,12 @@
     "sns",
     "sms"
   ],
-  "author": "Kyle Johns",
+  "author": "Akshay Shetgaonkar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nothingalike/sns-publish-topic/issues"
+    "url": "https://github.com/akki192/sns-publish-email/issues"
   },
-  "homepage": "https://github.com/nothingalike/sns-publish-topic#readme",
+  "homepage": "https://github.com/akki192/sns-publish-email#readme",
   "dependencies": {
     "@actions/core": "^1.1.0",
     "aws-sdk": "^2.630.0"

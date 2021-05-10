@@ -1,6 +1,6 @@
-name: "AWS SNS - Publish Topic"
-author: "Kyle Johns"
-description: "Send a SNS Topic via GitHub Actions"
+name: "AWS SNS - Publish Email"
+author: "Akshay Shetgaonkar"
+description: "Send a message to SNS Topic via GitHub Actions"
 inputs:
   MESSAGE:
     description: "The message you want to send"

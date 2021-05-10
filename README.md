@@ -1,6 +1,6 @@
 # AWS SNS - Publish Topic
 
-Send a SNS Topic via GitHub Actions
+Send a message to SNS Topic via GitHub Actions
 
 ## Usage
 
@@ -10,8 +10,9 @@ Send a SNS Topic via GitHub Actions
 
 ```yml
 - name: Publish SNS Topic
-  uses: nothingalike/sns-publish-topic@v1.6
+  uses: akki192/sns-publish-email@v1.6
   with:
+    SUBJECT: "Hello"
     MESSAGE: "message"
     TOPIC_ARN: "arn:aws:sns:[your region]:[your account id]:[your topic name]"
   env:
@@ -21,6 +22,10 @@ Send a SNS Topic via GitHub Actions
 ```
 
 ## Inputs
+
+### `SUBJECT`
+
+**Optional** This is your email subject
 
 ### `MESSAGE`
 

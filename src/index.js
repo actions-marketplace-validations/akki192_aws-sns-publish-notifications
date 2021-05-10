@@ -8,6 +8,7 @@ function execute() {
     const AWS_SECRET_ACCESS_KEY = core.getInput("AWS_SECRET_ACCESS_KEY") || process.env.AWS_SECRET_ACCESS_KEY;
     
     const MESSAGE = core.getInput("MESSAGE");
+    const SUBJECT = core.getInput("SUBJECT");
     const TOPIC_ARN = core.getInput("TOPIC_ARN");
 
     AWS.config.update({
@@ -22,6 +23,9 @@ function execute() {
       Message: MESSAGE,
       TopicArn: TOPIC_ARN
     };
+    if (SUBJECT) {
+      params.Subject = SUBJECT;
+    }
 
     const awsClient = new AWS.SNS({ apiVersion: "2010-03-31" });
 
@@ -31,11 +35,11 @@ function execute() {
         core.setFailed(err.Message); 
       }
       else {
-        core.debug("Published Topic Sent!");
+        core.debug("Published Message!");
         return data.MessageId;
       }
     });
-  }catch(error) {
+  } catch(error) {
     core.debug(err.Message);
     core.setFailed(error.message);
   }
