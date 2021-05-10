@@ -10,11 +10,12 @@ Send a message to SNS Topic via GitHub Actions
 
 ```yml
 - name: Publish SNS Topic
-  uses: akki192/sns-publish-email@v1.6
+  uses: akki192/sns-publish-email@0.0.1
   with:
     SUBJECT: "Hello"
     MESSAGE: "message"
-    TOPIC_ARN: "arn:aws:sns:[your region]:[your account id]:[your topic name]"
+    TOPIC_ARN: "arn:aws:sns:[REGION]:[ACCOUNT_ID]:[TOPIC_NAME]"
+    ADD_GITHUB_DETAILS: "true"
   env:
     AWS_REGION: ${{ secrets.AWS_REGION }}
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -34,6 +35,10 @@ Send a message to SNS Topic via GitHub Actions
 ### `TOPIC_ARN`
 
 **Required** This is the ARN of the SNS Topic you are publishing
+
+### `ADD_GITHUB_DETAILS`
+
+**Optional** If set to 'true', includes GitHub details like repository, branch and link to workflow in the notification
 
 ### `AWS_REGION`
 

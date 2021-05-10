@@ -10,6 +10,7 @@ function execute() {
     const MESSAGE = core.getInput("MESSAGE");
     const SUBJECT = core.getInput("SUBJECT");
     const TOPIC_ARN = core.getInput("TOPIC_ARN");
+    const ADD_GITHUB_DETAILS = core.getInput("ADD_GITHUB_DETAILS") || 'false';
 
     AWS.config.update({
       region: AWS_REGION,
@@ -18,9 +19,23 @@ function execute() {
     });
 
     core.debug(MESSAGE);
+
+    const message = {
+      message: MESSAGE
+    };
+
+    const gitParams = {
+      repository: process.env.GITHUB_REPOSITORY,
+      branch: process.env.GITHUB_REF,
+      workflowUrl: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+    };
+    
+    if (ADD_GITHUB_DETAILS) {
+      message = { ...message, ...gitParams };
+    }
     
     const params = {
-      Message: MESSAGE,
+      Message: JSON.stringify(message),
       TopicArn: TOPIC_ARN
     };
     if (SUBJECT) {
