@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const AWS = require('aws-sdk');
 
 function execute() {
-  try{
+  try {
     const AWS_REGION = core.getInput("AWS_REGION") || process.env.AWS_REGION;
     const AWS_ACCESS_KEY_ID = core.getInput("AWS_ACCESS_KEY_ID") || process.env.AWS_ACCESS_KEY_ID;
     const AWS_SECRET_ACCESS_KEY = core.getInput("AWS_SECRET_ACCESS_KEY") || process.env.AWS_SECRET_ACCESS_KEY;
@@ -24,17 +24,17 @@ function execute() {
 
     if (ADD_GITHUB_DETAILS) {
       message = `
-      Repository: ${process.env.GITHUB_REPOSITORY}
-      Branch: ${process.env.GITHUB_REF}
-      URL: https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}
-      
-      Message:
-      ${MESSAGE}
+Repository: ${process.env.GITHUB_REPOSITORY}
+Branch: ${process.env.GITHUB_REF}
+URL: https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}
+
+Message:
+${MESSAGE}
       `;
     } else {
       message = `
-      Message:
-      ${MESSAGE}
+Message:
+${MESSAGE}
       `;
     }
 
