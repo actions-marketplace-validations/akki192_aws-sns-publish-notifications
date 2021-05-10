@@ -1,11 +1,11 @@
 {
-  "name": "sns-publish-email",
+  "name": "aws-sns-publish-notifications",
   "version": "1.0.0",
   "description": "Send a message to SNS Topic via GitHub Actions",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akki192/sns-publish-email.git"
+    "url": "git+https://github.com/akki192/aws-sns-publish-notifications.git"
   },
   "keywords": [
     "github",
@@ -17,9 +17,9 @@
   "author": "Akshay Shetgaonkar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/akki192/sns-publish-email/issues"
+    "url": "https://github.com/akki192/aws-sns-publish-notifications/issues"
   },
-  "homepage": "https://github.com/akki192/sns-publish-email#readme",
+  "homepage": "https://github.com/akki192/aws-sns-publish-notifications#readme",
   "dependencies": {
     "@actions/core": "^1.1.0",
     "aws-sdk": "^2.630.0"

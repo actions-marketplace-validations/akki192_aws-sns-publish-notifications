@@ -1,4 +1,4 @@
-# AWS SNS - Publish Topic
+# AWS SNS - Publish notifications
 
 Send a message to SNS Topic via GitHub Actions
 
@@ -9,7 +9,7 @@ Send a message to SNS Topic via GitHub Actions
 2. Add the following to your workflow
 
 ```yml
-- name: Publish SNS Topic
+- name: Publish SNS Notification
   uses: akki192/sns-publish-email@0.0.1
   with:
     SUBJECT: "Hello"
